@@ -2,25 +2,25 @@
 
 lib = ::File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'activecampaign/client/version'
+require 'active_campaign/client/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'activecampaign-client'
-  spec.version       = Activecampaign::Client::VERSION
+  spec.name          = 'active_campaign-client'
+  spec.version       = ActiveCampaign::Client::VERSION
   spec.authors       = ['Ivan Vasylyshyn']
   spec.email         = ['vanyavasylyshyn@gmail.com']
 
-  spec.summary       = %(activecampaign_client)
+  spec.summary       = %(active_campaign_client)
   spec.description   = %(🚀 Ruby ActiveCampaign Client)
-  spec.homepage      = 'https://github.com/vanyavasylyshyn/activecampaign-client'
+  spec.homepage      = 'https://github.com/vanyavasylyshyn/active_campaign-client'
   spec.license       = 'MIT'
 
   spec.metadata = {
-    'homepage_uri' => 'https://github.com/vanyavasylyshyn/activecampaign-client',
-    'changelog_uri' => 'https://github.com/vanyavasylyshyn/activecampaign-client/blob/main/CHANGELOG.md',
-    'source_code_uri' => 'https://github.com/vanyavasylyshyn/activecampaign-client',
-    'documentation_uri' => 'https://github.com/vanyavasylyshyn/activecampaign-client/blob/main/README.md',
-    'bug_tracker_uri' => 'https://github.com/vanyavasylyshyn/activecampaign-client/issues'
+    'homepage_uri' => 'https://github.com/vanyavasylyshyn/active_campaign-client',
+    'changelog_uri' => 'https://github.com/vanyavasylyshyn/active_campaign-client/blob/main/CHANGELOG.md',
+    'source_code_uri' => 'https://github.com/vanyavasylyshyn/active_campaign-client',
+    'documentation_uri' => 'https://github.com/vanyavasylyshyn/active_campaign-client/blob/main/README.md',
+    'bug_tracker_uri' => 'https://github.com/vanyavasylyshyn/active_campaign-client/issues'
   }
 
   spec.required_ruby_version = Gem::Requirement.new('>= 2.7.0')

@@ -9,7 +9,7 @@ TODO: Delete this and the text above, and describe your gem
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'activecampaign-client'
+gem 'active_campaign-client'
 ```
 
 And then execute:
