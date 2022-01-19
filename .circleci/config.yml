@@ -101,4 +101,4 @@ workflows:
       - compatibility-ruby:
           matrix:
             parameters:
-              ruby-version: [ "2.5", "2.6", "3.0", "3.1" ]
+              ruby-version: ["3.0", "3.1" ]
