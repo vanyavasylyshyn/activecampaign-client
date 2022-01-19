@@ -12,7 +12,7 @@ references:
   restore_bundle_cache: &restore_bundle_cache
     restore_cache:
       keys:
-        - ruby-smtp-mock-{{ checksum "activecampaign_client.gemspec" }}
+        - ruby-smtp-mock-{{ checksum "activecampaign-client.gemspec" }}
 
   bundle_install: &bundle_install
     run:
@@ -22,7 +22,7 @@ references:
         bundle install
   save_bundle_cache: &save_bundle_cache
     save_cache:
-      key: ruby-smtp-mock-{{ checksum "activecampaign_client.gemspec" }}
+      key: ruby-smtp-mock-{{ checksum "activecampaign-client.gemspec" }}
       paths:
         - vendor/bundle
 
