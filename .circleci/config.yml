@@ -1,13 +1,104 @@
 version: 2.1
+
+defaults: &defaults
+  working_directory: ~/active-campaign-client
+  docker:
+    - image: cimg/ruby:<< parameters.ruby-version >>
+
+orbs:
+  ruby: circleci/ruby@1.2.0
+
+references:
+  restore_bundle_cache: &restore_bundle_cache
+    restore_cache:
+      keys:
+        - ruby-smtp-mock-{{ checksum "activecampaign-client.gemspec" }}
+
+  bundle_install: &bundle_install
+    run:
+      name: Installing gems
+      command: |
+        bundle config set --local path 'vendor/bundle'
+        bundle install
+  save_bundle_cache: &save_bundle_cache
+    save_cache:
+      key: ruby-smtp-mock-{{ checksum "activecampaign-client.gemspec" }}
+      paths:
+        - vendor/bundle
+
 jobs:
-  build:
-    docker:
-      - image: ruby:2.7.3
+  linters-ruby:
+    parameters:
+      ruby-version:
+        type: string
+
+    <<: *defaults
     steps:
       - checkout
+
+      - <<: *restore_bundle_cache
+      - <<: *bundle_install
+      - <<: *save_bundle_cache
+
       - run:
-          name: Run the default task
+          name: Running Overcommit
           command: |
-            gem install bundler -v 2.2.16
-            bundle install
-            bundle exec rake
+            bundle exec overcommit -s
+            SKIP=AuthorEmail,AuthorName bundle exec overcommit -r
+
+  tests-ruby:
+    parameters:
+      ruby-version:
+        type: string
+
+    <<: *defaults
+
+    steps:
+      - checkout
+
+      - <<: *restore_bundle_cache
+      - <<: *bundle_install
+      - <<: *save_bundle_cache
+
+      - run:
+          name: Running RSpec
+          command: bundle exec rspec
+
+      - store_artifacts:
+          name: Saving Simplecov coverage artifacts
+          path: ~/ruby-smtp-mock/coverage
+          destination: coverage
+
+  compatibility-ruby:
+    parameters:
+      ruby-version:
+        type: string
+
+    docker:
+      - image: cimg/ruby:<< parameters.ruby-version >>
+
+    steps:
+      - checkout
+      - ruby/install-deps:
+          bundler-version: "2.3.4"
+          with-cache: false
+          path: './vendor/custom_bundle'
+      - run:
+          name: Running compatibility tests
+          command: bundle exec rspec
+
+workflows:
+  build_and_test:
+    jobs:
+      - linters-ruby:
+          matrix:
+            parameters:
+              ruby-version: [ "2.7" ]
+      - tests-ruby:
+          matrix:
+            parameters:
+              ruby-version: [ "2.7" ]
+      - compatibility-ruby:
+          matrix:
+            parameters:
+              ruby-version: ["3.0", "3.1" ]
