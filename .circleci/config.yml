@@ -1,7 +1,7 @@
 version: 2.1
 
 defaults: &defaults
-  working_directory: ~/active-campaign-client
+  working_directory: ~/tempo-ruby
   docker:
     - image: cimg/ruby:<< parameters.ruby-version >>
 
@@ -12,7 +12,7 @@ references:
   restore_bundle_cache: &restore_bundle_cache
     restore_cache:
       keys:
-        - ruby-smtp-mock-{{ checksum "activecampaign-client.gemspec" }}
+        - ruby-smtp-mock-{{ checksum "tempo-ruby.gemspec" }}
 
   bundle_install: &bundle_install
     run:
@@ -22,7 +22,7 @@ references:
         bundle install
   save_bundle_cache: &save_bundle_cache
     save_cache:
-      key: ruby-smtp-mock-{{ checksum "activecampaign-client.gemspec" }}
+      key: ruby-smtp-mock-{{ checksum "tempo-ruby.gemspec" }}
       paths:
         - vendor/bundle
 

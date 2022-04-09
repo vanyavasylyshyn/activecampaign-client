@@ -3,7 +3,7 @@
 rspec_custom = ::File.join(::File.dirname(__FILE__), 'support/**/*.rb')
 ::Dir[::File.expand_path(rspec_custom)].sort.each { |file| require file unless file[/\A.+_spec\.rb\z/] }
 
-require_relative '../lib/active_campaign/client'
+require_relative '../lib/tempo-ruby'
 
 RSpec.configure do |config|
   config.expect_with(:rspec) do |expectations|
