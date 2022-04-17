@@ -1,0 +1,25 @@
+{
+  "self": "https://api.tempo.io/core/3/teams",
+  "metadata": {
+    "count": 1
+  },
+  "results": [
+    {
+      "self": "https://api.tempo.io/core/3/teams/2",
+      "id": 2,
+      "name": "Project 1",
+      "summary": "",
+      "lead": null,
+      "program": null,
+      "links": {
+        "self": "https://api.tempo.io/core/3/teams/2/links"
+      },
+      "members": {
+        "self": "https://api.tempo.io/core/3/teams/2/members"
+      },
+      "permissions": {
+        "self": "https://api.tempo.io/core/3/teams/2/permissions"
+      }
+    }
+  ]
+}
