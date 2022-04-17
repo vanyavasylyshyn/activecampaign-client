@@ -20,9 +20,9 @@ PreCommit:
     enabled: true
     flags: ['--format=emacs', '--force-exclusion', '--display-cop-names']
 
-  Reek:
-    enabled: true
-    flags: ['--force-exclusion']
+#  Reek:
+#    enabled: true
+#    flags: ['--force-exclusion']
 
 PostCheckout:
   ALL:
