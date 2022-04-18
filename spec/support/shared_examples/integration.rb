@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# rubocop:disable Style/FrozenStringLiteralComment
 
 require 'cgi'
 
@@ -175,3 +175,5 @@ shared_examples 'a resource with a PUT endpoint that rejects invalid fields' do
     end).to raise_error(JIRA::HTTPError)
   end
 end
+
+# rubocop:enable Style/FrozenStringLiteralComment
