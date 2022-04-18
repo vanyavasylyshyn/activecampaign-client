@@ -1,5 +1,6 @@
-# Tempo API Gem
+# ![tempo-ruby - 💎 Ruby gem for the 🕛 Tempo REST API :3](https://i.ibb.co/0f1pwBb/A4-1-4.png)
 
+# Tempo API Gem
 
 TODO: Delete this and the text above, and describe your gem
 
