@@ -7,10 +7,8 @@ require 'uri'
 
 module Tempo
   class HttpClient < RequestClient
-    API_KEY = 'key'
-
     def initialize(options)
-      @options = { Authorization: "Bearer #{API_KEY}" }.merge(options)
+      @options = { Authorization: "Bearer #{options.delete(:api_key)}" }.merge(options)
       @cookies = {}
     end
 
@@ -23,7 +21,6 @@ module Tempo
       execute_request(request)
     end
 
-    # TODO:  MAke it for API-KEYS
     def basic_auth_http_conn
       http_conn(uri)
     end
