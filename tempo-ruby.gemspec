@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'activesupport'
+  spec.add_runtime_dependency 'activesupport', '~> 6.1.4.1'
 
   spec.add_development_dependency 'bundler-audit', '~> 0.9.0.1'
   spec.add_development_dependency 'fasterer', '~> 0.9.0'
@@ -42,8 +42,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.10'
   spec.add_development_dependency 'rubocop', '~> 1.24'
   spec.add_development_dependency 'rubocop-performance', '~> 1.13'
-  spec.add_development_dependency 'rubocop-rake'
+  spec.add_development_dependency 'rubocop-rake', '~> 0.6.0'
   spec.add_development_dependency 'rubocop-rspec', '~> 2.7'
   spec.add_development_dependency 'simplecov', '~> 0.17.1'
-  spec.add_development_dependency 'webmock'
+  spec.add_development_dependency 'webmock', '~> 3.12.2'
 end

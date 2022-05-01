@@ -60,6 +60,15 @@ module Tempo
       instance
     end
 
+    def self.find_by(client, options = {})
+      response = client.get(collection_path_by_key(client, options))
+      json = parse_json(response.body)['results']
+      json = json[endpoint_name.pluralize] if collection_attributes_are_nested
+      json.map do |attrs|
+        new(client, { attrs: attrs }.merge(options))
+      end
+    end
+
     # Builds a new instance of the resource with the given attributes.
     # These attributes will be posted to the Tempo Api if save is called.
     def self.build(client, attrs)
@@ -80,6 +89,14 @@ module Tempo
     #     # => /tempo/core/3/teams
     def self.collection_path(client, prefix = '/')
       client.options[:rest_base_path] + prefix + endpoint_name
+    end
+
+    # Returns the full path for a collection of this resource.
+    # E.g.
+    #   Tempo::resource::Issue.collection_path
+    #     # => /tempo/core/3/teams
+    def self.collection_path_by_key(client, options = {}, prefix = '/')
+      [client.options[:rest_base_path], options.keys.first.to_s, options.values.first].join(prefix)
     end
 
     # Returns the singular path for the resource with the given key.
