@@ -14,3 +14,5 @@ require 'tempo/client'
 
 require 'tempo/resource/team'
 require 'tempo/resource/team_member'
+require 'tempo/resource/worklog'
+require 'tempo/resource/user_schedule'

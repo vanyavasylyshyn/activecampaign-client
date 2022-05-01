@@ -1,0 +1,36 @@
+{
+  "self": "https://api.tempo.io/core/3/worklogs/user/70121:d947c445-a8f7-42c3-a0c9-fb747131d2c7?offset=0&limit=50",
+  "metadata": {
+    "count": 1,
+    "offset": 0,
+    "limit": 50
+  },
+  "results": [
+    {
+      "self": "https://api.tempo.io/core/3/worklogs/2",
+      "tempoWorklogId": 2,
+      "jiraWorklogId": 10000,
+      "issue": {
+        "self": "https://vanyavasylyshyn.atlassian.net/rest/api/2/issue/VENX-1",
+        "key": "VENX-1",
+        "id": 10000
+      },
+      "timeSpentSeconds": 28800,
+      "billableSeconds": 28800,
+      "startDate": "2022-05-01",
+      "startTime": "08:00:00",
+      "description": "Some Test Worklog",
+      "createdAt": "2022-05-01T12:15:38Z",
+      "updatedAt": "2022-05-01T12:15:38Z",
+      "author": {
+        "self": "https://jira.atlassian.net/rest/api/2/user?accountId=70121:d947c445-a8f7-42c3-a0c9-fb747131d2c7",
+        "accountId": "70121:d947c445-a8f7-42c3-a0c9-fb747131d2c7",
+        "displayName": "Test User"
+      },
+      "attributes": {
+        "self": "https://api.tempo.io/core/3/worklogs/2/work-attribute-values",
+        "values": []
+      }
+    }
+  ]
+}

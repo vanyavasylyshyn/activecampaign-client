@@ -176,4 +176,15 @@ shared_examples 'a resource with a PUT endpoint that rejects invalid fields' do
   end
 end
 
+shared_examples 'a resource with collection GET endpoint by key' do
+  it 'gets the collection' do
+    stub_request(:get, site_url + described_class.collection_path_by_key(client, find_by_params))
+      .to_return(status: 200, body: get_mock_from_path(:get))
+    collection = build_receiver.find_by(find_by_params)
+
+    expect(collection.length).to eq(expected_collection_length)
+    expect(collection.first).to have_attributes(expected_attributes)
+  end
+end
+
 # rubocop:enable Style/FrozenStringLiteralComment

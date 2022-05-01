@@ -38,7 +38,7 @@ module Tempo
     # The principle purpose of this class is to delegate methods to the corresponding
     # non-factory class and automatically prepend the client argument to the argument
     # list.
-    delegate_to_target_class :all, :find, :collection_path, :singular_path
+    delegate_to_target_class :all, :find, :find_by, :collection_path, :singular_path
 
     # This method needs special handling as it has a default argument value
     def build(attrs = {})

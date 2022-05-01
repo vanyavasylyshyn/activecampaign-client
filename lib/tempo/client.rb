@@ -81,6 +81,14 @@ module Tempo
       Tempo::Resource::TeamMemberFactory.new(self)
     end
 
+    def Worklog # :nodoc:
+      Tempo::Resource::WorklogFactory.new(self)
+    end
+
+    def UserSchedule # :nodoc:
+      Tempo::Resource::UserSchedule.new(self)
+    end
+
     # HTTP methods without a body
     def delete(path, headers = {})
       request(:delete, path, nil, merge_default_headers(headers))
